@@ -1,12 +1,11 @@
 package com.example.meuprimeiroapp;
 
+import android.os.Bundle;
+import android.widget.Button;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 
 public class MainActivity2 extends AppCompatActivity {
 
@@ -18,30 +17,24 @@ public class MainActivity2 extends AppCompatActivity {
         setContentView(R.layout.activity_main2);
         firstFragment = findViewById(R.id.BtnPrimeiroFragmento);
         secondFragment = findViewById(R.id.BtnSegundoFragmento);
-        firstFragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment newFragment = new ExemploFragmento();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        firstFragment.setOnClickListener(v -> {
+            Fragment newFragment = new ExemploFragmento();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.flFragment, newFragment);
-                transaction.addToBackStack(null);
+            transaction.replace(R.id.flFragment, newFragment);
+            transaction.addToBackStack(null);
 
-                transaction.commit();
-            }
+            transaction.commit();
         });
 
-        secondFragment.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Fragment newFragment = new SegundoFragmento();
-                FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        secondFragment.setOnClickListener(v -> {
+            Fragment newFragment = new SegundoFragmento();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-                transaction.replace(R.id.flFragment, newFragment);
-                transaction.addToBackStack(null);
+            transaction.replace(R.id.flFragment, newFragment);
+            transaction.addToBackStack(null);
 
-                transaction.commit();
-            }
+            transaction.commit();
         });
     }
 }
